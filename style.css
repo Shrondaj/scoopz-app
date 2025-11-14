@@ -1,0 +1,1093 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #243228;
+    background: radial-gradient(circle at top, #fdf8f3 0%, #f5f0ea 45%, #efe7dd 100%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    color: #203322;
+}
+
+/* Layout */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    z-index: 20;
+}
+
+.header-title {
+    font-family: "Dancing Script", "Playfair Display", serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+}
+
+.header-login {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(58, 94, 64, 0.15);
+    color: #2c5530;
+}
+
+.header-login.active {
+    background: linear-gradient(135deg, #d4844a, #ba6d38);
+    color: #fff;
+    border-color: transparent;
+}
+
+.menu-btn {
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    background: linear-gradient(180deg, #263b29 0%, #1e2b21 60%, #172119 100%);
+    color: #f7f3ea;
+    padding: 1.25rem 1.25rem 1.5rem;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease-out;
+    z-index: 30;
+}
+
+.side-nav.open {
+    transform: translateX(0);
+}
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.nav-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    color: #f7f3ea;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.side-nav nav ul li a {
+    display: block;
+    padding: 0.55rem 0.1rem;
+    font-size: 0.96rem;
+    opacity: 0.85;
+    border-radius: 999px;
+    transition: background 0.2s ease, padding-left 0.2s ease, opacity 0.2s ease;
+}
+
+.side-nav nav ul li a:hover {
+    opacity: 1;
+    background: rgba(244, 238, 225, 0.08);
+    padding-left: 0.4rem;
+}
+
+.side-nav nav ul li a.active {
+    background: linear-gradient(135deg, #d4844a, #ba6d38);
+    color: #fff;
+    padding-left: 0.4rem;
+}
+
+.nav-bottom {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-btn,
+.donate-btn {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+}
+
+.login-btn {
+    border: 1px solid rgba(250, 245, 235, 0.4);
+}
+
+.login-btn.active {
+    background: #fdf5ea;
+    color: #263b29;
+}
+
+.donate-btn {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: #fff;
+}
+
+/* Main page content */
+.page-content {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.hero {
+    position: relative;
+    min-height: 60vh;
+    padding: 6rem 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-inner {
+    position: relative;
+    max-width: 840px;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-inner h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.9rem;
+}
+
+.hero-sub {
+    font-size: 1rem;
+    max-width: 620px;
+    margin: 0 auto 1.6rem;
+    color: #4b5b4c;
+}
+
+.hero-ctas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.mandala-bg,
+.buddha-silhouette {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(44, 85, 48, 0.16);
+    pointer-events: none;
+}
+
+.mandala-bg {
+    width: 480px;
+    height: 480px;
+}
+
+.buddha-silhouette {
+    width: 260px;
+    height: 260px;
+}
+
+/* Containers */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.container-narrow {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Sections */
+.intro-section,
+.featured-membership,
+.testimonials-section,
+.blog-preview,
+.content-section,
+.blog-list-section,
+.courses-section,
+.membership-full,
+.comparison-section,
+.faq-section,
+.bundles-section,
+.platform-info,
+.cta-section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    font-size: 1.7rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #5a6a5c;
+    margin-bottom: 2rem;
+}
+
+/* Intro cards */
+.intro-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.intro-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.intro-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.link-arrow {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-size: 0.92rem;
+    color: #d4844a;
+}
+
+/* Membership preview */
+.membership-preview {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.membership-mini {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid rgba(196, 170, 140, 0.35);
+}
+
+.membership-mini.featured {
+    border-width: 2px;
+    border-color: #d4844a;
+    box-shadow: 0 14px 32px rgba(212, 132, 74, 0.28);
+}
+
+.membership-mini h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.membership-mini .price {
+    font-weight: 700;
+    color: #d4844a;
+}
+
+.membership-mini .price span {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.cta-center {
+    margin-top: 1.6rem;
+    text-align: center;
+}
+
+/* Testimonials */
+.testimonial-slider {
+    margin-top: 1.8rem;
+}
+
+.testimonial {
+    display: none;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    padding: 1.7rem 1.9rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial.active {
+    display: block;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+    color: #d4844a;
+}
+
+.testimonial-author {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #6a756a;
+}
+
+/* Blog preview cards */
+.blog-grid-small {
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 1.4rem;
+}
+
+.blog-card-small {
+    display: flex;
+    gap: 0.9rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+}
+
+.blog-image-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #ffebd6 0%, #f4c69a 100%);
+}
+
+.blog-content-small h3 {
+    font-size: 1rem;
+}
+
+.blog-date {
+    font-size: 0.8rem;
+    color: #818c80;
+}
+
+.read-more {
+    font-size: 0.85rem;
+    color: #d4844a;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #d4844a, #ba6d38);
+    color: #fff;
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(180, 151, 118, 0.6);
+    color: #5a432a;
+}
+
+.btn.full-width {
+    width: 100%;
+    text-align: center;
+}
+
+/* Page hero */
+.page-hero {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+}
+
+.page-hero .lotus-icon {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.page-hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.lead {
+    color: #5b6d5f;
+}
+
+/* About page */
+.large-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4b5b4c;
+}
+
+.philosophy-grid,
+.values-grid {
+    display: grid;
+    gap: 1.3rem;
+}
+
+.philosophy-card,
+.value-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 1.3rem 1.4rem;
+}
+
+.philosophy-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.founder-section {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 1.2rem;
+}
+
+.image-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffe2e9 0%, #f4c5d6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+}
+
+.founder-bio p + p {
+    margin-top: 0.7rem;
+}
+
+/* Services page */
+.services-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.service-card-main {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+}
+
+.service-card-main h2 {
+    margin-bottom: 0.5rem;
+}
+
+.service-card-main ul {
+    list-style: disc;
+    margin-left: 1.3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: #4e5f50;
+}
+
+/* Membership page */
+.membership-grid-full {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.membership-card-full {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    padding: 1.5rem 1.5rem 1.7rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.membership-card-full.featured {
+    border: 2px solid #d4844a;
+}
+
+.membership-header {
+    margin-bottom: 0.8rem;
+}
+
+.membership-header.essence {
+    border-left: 4px solid #8ab57e;
+    padding-left: 0.8rem;
+}
+
+.membership-header.harmony {
+    border-left: 4px solid #d4844a;
+    padding-left: 0.8rem;
+}
+
+.membership-header.majestic {
+    border-left: 4px solid #b9974a;
+    padding-left: 0.8rem;
+}
+
+.membership-price {
+    font-size: 1.2rem;
+    color: #d4844a;
+    font-weight: 700;
+}
+
+.membership-price span {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.membership-tagline {
+    font-size: 0.9rem;
+    color: #6a756a;
+}
+
+.membership-features-full {
+    margin: 0.9rem 0 1.1rem;
+}
+
+.membership-features-full li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #4f5d50;
+}
+
+.membership-features-full .check {
+    color: #2c5530;
+}
+
+.membership-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: #2c5530;
+    color: #fff;
+    letter-spacing: 0.07em;
+}
+
+.membership-badge.gold {
+    background: linear-gradient(135deg, #f7d37a, #c49a3a);
+    color: #3b2a10;
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #e0ded7;
+    padding: 0.45rem 0.5rem;
+    text-align: center;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    text-align: left;
+}
+
+.faq-item + .faq-item {
+    margin-top: 0.9rem;
+}
+
+.faq-item h4 {
+    margin-bottom: 0.3rem;
+}
+
+/* Courses page */
+.courses-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.course-card-full {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.course-card-full.featured {
+    border: 2px solid #d4844a;
+}
+
+.course-icon-large {
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background: #f4efe4;
+    margin-bottom: 0.4rem;
+}
+
+.course-badge.popular {
+    background: #ffe5c4;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    color: #6b796d;
+    margin: 0.3rem 0 0.6rem;
+}
+
+.course-description {
+    font-size: 0.94rem;
+    color: #4d5b4f;
+}
+
+.course-curriculum {
+    margin: 0.7rem 0 0.9rem;
+    padding-left: 1.1rem;
+    list-style: disc;
+    color: #4e5f50;
+}
+
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.course-price {
+    font-weight: 700;
+    color: #2c5530;
+}
+
+.member-note {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: #6b796d;
+}
+
+/* Bundles & platform info */
+.bundles-grid {
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 1.3rem;
+}
+
+.bundle-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.bundle-card.featured {
+    border: 2px solid #d4844a;
+}
+
+.bundle-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    color: #9a8a7a;
+}
+
+.bundle-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c5530;
+}
+
+.save-badge {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #d4844a;
+}
+
+.platform-features {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.3rem;
+}
+
+.platform-feature {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.feature-icon {
+    font-size: 1.4rem;
+}
+
+/* Blog list & post */
+.blog-grid {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.blog-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.blog-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #eff5ed;
+    color: #425244;
+    margin-bottom: 0.3rem;
+}
+
+.blog-meta {
+    font-size: 0.82rem;
+    color: #7a8579;
+    margin: 0.2rem 0 0.6rem;
+}
+
+.blog-post {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0;
+}
+
+.blog-post-header h1 {
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.blog-body {
+    margin-top: 1.2rem;
+}
+
+.blog-body p {
+    margin-bottom: 0.9rem;
+    line-height: 1.7;
+}
+
+.blog-body h2 {
+    margin-top: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.blog-post-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e1ddd3;
+}
+
+/* Community */
+.community-grid {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.community-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.community-card ul {
+    list-style: disc;
+    margin-left: 1.3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Contact */
+.contact-grid {
+    display: grid;
+    gap: 1.6rem;
+}
+
+.contact-details .contact-list {
+    margin-top: 0.7rem;
+}
+
+.contact-details .contact-list li + li {
+    margin-top: 0.35rem;
+}
+
+.support-box {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: #fff3e0;
+    font-size: 0.9rem;
+}
+
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-simple label {
+    display: block;
+    margin-top: 0.7rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.contact-form-simple input,
+.contact-form-simple select,
+.contact-form-simple textarea,
+.login-form input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #d7d1c7;
+    padding: 0.6rem 0.75rem;
+    font: inherit;
+}
+
+.contact-form-simple textarea {
+    resize: vertical;
+}
+
+.form-note {
+    margin-top: 0.7rem;
+    font-size: 0.82rem;
+    color: #7a8579;
+}
+
+/* Login */
+.login-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.login-form label {
+    display: block;
+    margin-top: 0.7rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.login-form button {
+    margin-top: 0.9rem;
+}
+
+/* CTA section */
+.cta-section {
+    background: linear-gradient(135deg, #2c5530, #3a6b40);
+    color: #fff;
+    text-align: center;
+}
+
+.cta-section .section-title,
+.cta-section h2,
+.cta-section p {
+    color: #fff;
+}
+
+.cta-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.96);
+    margin-top: 2.5rem;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.8rem 1.5rem 1.4rem;
+    display: grid;
+    gap: 1.4rem;
+}
+
+.footer-section h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.footer-section ul li {
+    font-size: 0.85rem;
+}
+
+.footer-section ul li + li {
+    margin-top: 0.25rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    text-align: center;
+    padding: 0.75rem 1.5rem 1rem;
+    font-size: 0.8rem;
+    color: #7a8579;
+}
+
+/* Utilities */
+.content-section.alt-bg {
+    background: radial-gradient(circle at top left, #f8f3ec 0%, #f2ebe1 55%, #ece4da 100%);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .page-content {
+        padding-left: 260px;
+    }
+
+    .side-nav {
+        transform: translateX(0);
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .hero {
+        justify-content: flex-start;
+        padding-left: 260px;
+    }
+
+    .intro-grid,
+    .philosophy-grid,
+    .values-grid,
+    .services-grid,
+    .membership-grid-full,
+    .courses-grid,
+    .bundles-grid,
+    .platform-features,
+    .blog-grid,
+    .community-grid,
+    .contact-grid,
+    .blog-grid-small {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .membership-grid-full,
+    .courses-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .blog-post,
+    .container-narrow {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-inner h1 {
+        font-size: 3rem;
+    }
+
+    .hero-sub {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        padding-top: 5.5rem;
+    }
+
+    .mandala-bg {
+        width: 360px;
+        height: 360px;
+    }
+
+    .buddha-silhouette {
+        width: 200px;
+        height: 200px;
+    }
+}
